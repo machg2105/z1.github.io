@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 20px;
+}
+
+#app {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #4a90e2;
+}
+
+input, button {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #4a90e2;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+button {
+    background-color: #4a90e2;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3a80d2;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #4a90e2;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #2a2a2a;
+}
+
+#weekly-summary, #records-table, #charts {
+    margin-top: 30px;
+}
+
+#week-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+canvas {
+    margin-top: 20px;
+    background-color: #2a2a2a;
+    border-radius: 4px;
+}
