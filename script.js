@@ -1,3 +1,45 @@
+// Cargar estado inicial desde localStorage
+function loadInitialState() {
+    const denominations = [
+        'bill20', 'bill10', 'bill5', 
+        'coin1', 'coin50', 'coin25', 'coin10', 'coin5', 'coin1cent'
+    ];
+    
+    denominations.forEach(denom => {
+        const savedValue = localStorage.getItem(denom);
+        if (savedValue !== null) {
+            document.getElementById(denom).value = savedValue;
+        }
+    });
+}
+
+// Guardar estado actual en localStorage
+function saveState() {
+    const denominations = [
+        'bill20', 'bill10', 'bill5', 
+        'coin1', 'coin50', 'coin25', 'coin10', 'coin5', 'coin1cent'
+    ];
+    
+    denominations.forEach(denom => {
+        localStorage.setItem(denom, document.getElementById(denom).value);
+    });
+}
+
+// Registrar transacción
+function logTransaction(transaction) {
+    const logElement = document.getElementById('transactionLog');
+    const logEntry = document.createElement('div');
+    logEntry.textContent = transaction;
+    logEntry.style.borderBottom = '1px solid #eee';
+    logElement.insertBefore(logEntry, logElement.firstChild);
+}
+
+// Borrar historial de transacciones
+function clearTransactionLog() {
+    const logElement = document.getElementById('transactionLog');
+    logElement.innerHTML = '';
+}
+
 function calculateChange() {
     const purchaseAmount = parseFloat(document.getElementById('purchaseAmount').value);
     const paymentAmount = parseFloat(document.getElementById('paymentAmount').value);
@@ -83,3 +125,12 @@ function calculateChange() {
     // Guardar estado actualizado
     saveState();
 }
+
+// Agregar event listeners para guardar estado al cambiar valores
+const inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
+    input.addEventListener('change', saveState);
+});
+
+// Cargar estado inicial al cargar la página
+loadInitialState();
