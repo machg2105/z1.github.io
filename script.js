@@ -23,6 +23,7 @@ function saveState() {
     denominations.forEach(denom => {
         localStorage.setItem(denom, document.getElementById(denom).value);
     });
+    alert('Cantidad de billetes y monedas guardada correctamente.');
 }
 
 // Registrar transacción
@@ -122,15 +123,9 @@ function calculateChange() {
     // Registrar transacción
     logTransaction(`Compra: $${purchaseAmount.toFixed(2)}, Pago: $${paymentAmount.toFixed(2)}, Cambio: $${changeAmount.toFixed(2)}`);
 
-    // Guardar estado actualizado
+    // Guardar estado actualizado después de la transacción
     saveState();
 }
-
-// Agregar event listeners para guardar estado al cambiar valores
-const inputs = document.querySelectorAll('input');
-inputs.forEach(input => {
-    input.addEventListener('change', saveState);
-});
 
 // Cargar estado inicial al cargar la página
 loadInitialState();
