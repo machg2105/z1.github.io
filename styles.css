@@ -73,6 +73,16 @@ button:hover {
     background-color: #2980b9;
 }
 
+/* Botón de guardar billetes y monedas */
+button#saveState {
+    background-color: #2ecc71;
+    margin-top: 20px;
+}
+
+button#saveState:hover {
+    background-color: #27ae60;
+}
+
 /* Resultado del cambio */
 #changeResult {
     text-align: left;
